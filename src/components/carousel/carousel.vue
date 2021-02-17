@@ -1,7 +1,6 @@
 <template>
   <div class="carousel">
     <button @click="goLeft" class="left">-</button>
-    test
     <slot></slot>
     <button @click="goRight" class="right">+</button>
     <div class="indexT">
@@ -78,6 +77,7 @@ export default {
 .left {
   position: absolute;
   top: 50%;
+  z-index: 1000;
   left: 15px;
 }
 .bg-color {

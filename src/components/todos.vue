@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <header>
+    <div class="box">
+        <header >
             <h1>Todos</h1>
-            <input type="text" placeholder="add task" v-model="newTodo" required @keyup.enter="addTodo">
+            <input type="text" class="input-type" placeholder="add task" v-model="newTodo" required @keyup.enter="addTodo">
         </header>
-        <label >
-                All done
+        <label class="text-center label-input ">
             <input type="checkbox" v-model="allDone">
-            </label>
-        <div>
+                All done
+        </label>
+        <div class="li-div">
             <ul>
                 <li :class="{completed: todo.completed}" v-for="(todo, index) in filtered" :key="index">
                     <input type="checkbox" v-model="todo.completed">
@@ -19,11 +19,11 @@
             </ul>
         </div>
         <div class="footer" v-if="todos.length > 0 ">
-            <ul class="filter" >
                 {{remain}} unfinished task
-                <li><a href="#" :class="{selected: selecttag === 'all'}" @click.prevent="selecttag= 'all'">All</a></li>
-                <li><a href="#" :class="{selected: selecttag === 'unfinish'}" @click.prevent="selecttag= 'unfinish'">Unfinish</a></li>
-                <li><a href="#" :class="{selected: selecttag === 'done'}" @click.prevent="selecttag= 'done'">Done</a></li>
+            <ul class="filter" >
+                <li class="filter-li"><a href="#" :class="{selected: selecttag === 'all'}" @click.prevent="selecttag= 'all'">All</a></li>
+                <li class="filter-li"><a href="#" :class="{selected: selecttag === 'unfinish'}" @click.prevent="selecttag= 'unfinish'">Unfinish</a></li>
+                <li class="filter-li"><a href="#" :class="{selected: selecttag === 'done'}" @click.prevent="selecttag= 'done'">Done</a></li>
             </ul>
             <button class="deleteall" v-show="checked > 0 " @click.prevent="destroy_all">
                 delete all
@@ -118,8 +118,61 @@ export default {
 </script>
 
 <style>
+.text-center{
+    text-align: center;
+}
+.footer{
+    width: 80%;
+    margin: 0 auto;
+}
+.label-input{
+    display: flex;
+    justify-content: center;
+}
+.filter{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.filter-li{
+    background: #cccc;
+    width: 150px;
+    padding: 8px 0;
+    text-align: center;
+    border-radius: 5px;
+}
+.filter-li:hover,.filter-li:active{
+    outline: none;
+    background: transparent;
+    box-shadow: 0.5px 0.5px 3px 0.5px rgb(0, 247, 255);
+}
+.filter-li a{
+    padding: 8px 50px;
+}
+.li-div{
+    width: 50%;
+    margin: 0 auto;
+}
+.input-type{
+    width: 80%;
+    margin-left: 10%;
+    padding: 5px;
+    border: 1px solid rgba(90, 87, 87, 0.2);
+    border-radius: 5px; 
+    margin-bottom: 10px;
+}
+.input-type:focus{
+    border: 1px solid rgb(0, 247, 255);
+    outline: none;
+    box-shadow: 0.5px 0.5px 3px 0.5px rgb(0, 247, 255);
+}
 h1{
-    color: red;
+    text-align: center;
+    color: rgb(0, 204, 255);
+}
+.box{
+    width: 50%;
+    margin: 0 auto;
 }
 .completed{
     color: rgba(0, 0, 0, 0.466);

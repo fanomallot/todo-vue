@@ -30,7 +30,7 @@ export default {
 .slide-right-leave-active {
   animation: slidrightOut 2s;
   position: absolute;
-  top: 21.5px;
+  top: 0px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -58,7 +58,7 @@ export default {
 .slide-left-leave-active {
   animation: slidleftOut 2s;
   position: absolute;
-  top: 18px;
+  top: 0px;
   left: 0;
   right: 0;
   bottom: 0;
