@@ -1,2 +1,4 @@
 # todo-vue
-First application with vue, todo list
+First application with vue, todos list
+Vue cli 2
+ run: yarn run dev
